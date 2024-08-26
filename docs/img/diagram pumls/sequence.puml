@@ -1,0 +1,17 @@
+@@startuml sequence
+
+actor User
+
+User -> EventAppFX: *Clicks on "createEventButton"-Button*
+EventAppFX -> AppController: addToList
+AppController -> WebHandler: if valid Event: webhandler.addEvent(Event)
+AppController -> User: if invalid Event: "Invalid Event"-Feedback
+database REST
+WebHandler -> REST: POST-HTTP-Request addEvent (Event)
+REST -> AppStorage: addEvent(event)
+database json
+AppStorage -> json: writeApp(Event)
+
+REST -> User: HTTP Response: 200 OK, added
+
+@@enduml

@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: sdk use java 17.0.5-tem
+    command: cd eventplanner
+
+ports:
+  - port: 6080
+
+vscode:
+  extensions:
+    - vsls-contrib.codetour
+    - ritwickdey.liveserver
+    - jebbs.plantuml

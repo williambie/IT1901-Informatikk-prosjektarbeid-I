@@ -1,0 +1,36 @@
+@startuml class
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AppController
+class AppStorage
+class Event {
+   participantList: ArrayList<Participant>
+   date: String
+   eventName: String
+   location: String
+   creatorName: String
+   participants: int
+}
+class EventApp
+class EventHandler {
+   eventList: ArrayList<Event>
+   userName: String
+   eventCount: int
+}
+class EventRestApplication
+class EventRestController
+class EventRestService
+class Participant {
+   name: String
+   eventName: String
+   creatorName: String
+   checked: boolean
+}
+class WebHandler
+
+Participant           +-[#820000,plain]-  Event
+                
+@enduml

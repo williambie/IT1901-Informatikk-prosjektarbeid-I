@@ -1,0 +1,5 @@
+<FindBugsFilter>
+    <Match>
+        <Bug pattern="SA_LOCAL_SELF_COMPARISON" />
+    </Match>
+</FindBugsFilter>

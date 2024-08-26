@@ -1,0 +1,45 @@
+@@startuml architecture
+
+component core {
+	package eventplanner.core
+}
+
+component data {
+	package eventplanner.data
+}
+
+eventplanner.core ..> eventplanner.data 
+
+component gson {
+}
+
+data ..> gson
+
+component ui {
+	package eventplanner.ui
+}
+
+eventplanner.ui ..> eventplanner.core
+eventplanner.ui ..> eventplanner.data
+
+component javafx {
+	component fxml {
+	}
+}
+
+ui ..> javafx
+ui ..> fxml
+
+component rest {
+	package eventplanner.rest
+}
+
+eventplanner.rest ..> eventplanner.core
+eventplanner.rest ..> eventplanner.data
+
+component springboot {
+}
+
+rest ..> springboot 
+
+@@enduml

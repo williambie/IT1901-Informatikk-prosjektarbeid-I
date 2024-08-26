@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/" fx:controller="eventplanner.ui.AppController">
+   <children>
+      <AnchorPane prefHeight="50.0" prefWidth="992.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <FontIcon iconColor="WHITE" iconLiteral="far-calendar-check" iconSize="25" layoutX="25.0" layoutY="34.0" />
+            <Label layoutX="53.0" layoutY="12.0" text="Eventplanner" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="logOut" graphicTextGap="0.0" layoutX="892.0" layoutY="5.0" mnemonicParsing="false" onAction="#logOutButton" style="-fx-background-color: white; -fx-background-insets: 0,1,2,0; -fx-text-fill: #0598ff; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Log Out">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <TextFlow fx:id="signInField" layoutX="345.0" layoutY="16.0" prefHeight="21.0" prefWidth="533.0" textAlignment="RIGHT" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="participantPane" layoutX="10.0" layoutY="58.0" prefHeight="501.0" prefWidth="972.0" style="-fx-border-color: #0598ff; -fx-background-color: white;">
+         <children>
+            <ListView fx:id="participantsView" layoutX="91.0" layoutY="167.0" onMouseClicked="#handleAttendence" prefHeight="253.0" prefWidth="232.0" style="-fx-border-color: #0598ff;" />
+            <Pane layoutX="466.0" layoutY="10.0" prefHeight="450.0" prefWidth="284.0" style="-fx-background-radius: 25; -fx-background-color: #b0bbc3;" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="128.0" layoutY="122.0" prefHeight="47.0" prefWidth="162.0" text="Participants" textFill="#0598ff">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="528.0" layoutY="21.0" prefHeight="47.0" prefWidth="162.0" text="Event Info" textFill="#0573bc">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="566.0" layoutY="72.0" prefHeight="47.0" prefWidth="83.0" text="Name" textFill="#0598ff">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="eventInfoName" layoutX="499.0" layoutY="124.0" prefHeight="26.0" prefWidth="218.0" promptText="Event Name" style="-fx-border-color: #0598ff;" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="566.0" layoutY="236.0" prefHeight="47.0" prefWidth="83.0" text="Location" textFill="#0598ff">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="eventInfoLocation" layoutX="499.0" layoutY="280.0" prefHeight="26.0" prefWidth="218.0" promptText="Location" style="-fx-border-color: #0598ff;" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="566.0" layoutY="316.0" prefHeight="47.0" prefWidth="83.0" text="Date" textFill="#0598ff">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="eventInfoDate" layoutX="498.0" layoutY="363.0" prefHeight="26.0" prefWidth="218.0" promptText="dd.mm.yyyy" style="-fx-border-color: #0598ff;" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="6.0" prefHeight="47.0" prefWidth="162.0" text="Add Participants" textFill="#0573bc">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="participantName" alignment="CENTER" layoutX="99.0" layoutY="45.0" prefHeight="26.0" prefWidth="218.0" promptText="Participant´s name" style="-fx-border-color: #0598ff;" />
+            <Button fx:id="addParticipant" layoutX="162.0" layoutY="81.0" mnemonicParsing="false" onAction="#addParticipant" prefHeight="30.0" prefWidth="93.0" style="-fx-background-color: #0598ff; -fx-background-insets: 0,1,2,0; -fx-text-fill: white; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);" text="Add" />
+            <Button fx:id="removeParticipant" layoutX="230.0" layoutY="430.0" mnemonicParsing="false" onAction="#removeParticipant" prefHeight="30.0" prefWidth="93.0" style="-fx-background-color: #0598ff; -fx-background-insets: 0,1,2,0; -fx-text-fill: white; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-font-family: Arial; -fx-text-fill: linear-gradient(white, #d0d0d0);" text="Remove" />
+            <Button fx:id="updateEventInfo" layoutX="526.0" layoutY="414.0" mnemonicParsing="false" onAction="#updateEventInfo" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: #0598ff; -fx-background-insets: 0,1,2,0; -fx-text-fill: white; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-font-family: Arial; -fx-text-fill: linear-gradient(white, #d0d0d0);" text="Update event info" />
+            <Button fx:id="closeParticipantPane" layoutX="903.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeParticipantPane" prefHeight="30.0" prefWidth="55.0" style="-fx-background-color: #0598ff; -fx-background-insets: 0,1,2,0; -fx-text-fill: white; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-font-family: Arial; -fx-text-fill: linear-gradient(white, #d0d0d0);" text="Close" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="524.0" layoutY="145.0" prefHeight="64.0" prefWidth="171.0" text="Max Participants" textAlignment="CENTER" textFill="#0598ff">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="eventMaxParticipantInfo" layoutX="499.0" layoutY="204.0" prefHeight="26.0" prefWidth="218.0" promptText="Participants" style="-fx-border-color: #0598ff;" />
+            <TextField fx:id="attendedBox" editable="false" layoutX="91.0" layoutY="431.0" prefHeight="27.0" prefWidth="127.0" style="-fx-border-color: #0598ff;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="514.0" layoutY="67.0" prefHeight="473.0" prefWidth="400.0" style="-fx-background-color: #b0bbc3; -fx-background-radius: 25;">
+         <children>
+            <TextField fx:id="eventNameInput" alignment="CENTER" layoutX="84.0" layoutY="100.0" prefHeight="24.0" prefWidth="232.0" promptText="Event Name" style="-fx-border-color: #0598ff;" />
+            <Label alignment="CENTER" layoutY="60.0" prefHeight="25.0" prefWidth="400.0" text="Event Name" textFill="#0598ff">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="eventParticipantsInput" alignment="CENTER" layoutX="84.0" layoutY="186.0" prefHeight="24.0" prefWidth="232.0" promptText="Participants" style="-fx-border-color: #0598ff;" />
+            <Label alignment="CENTER" layoutY="150.0" prefHeight="25.0" prefWidth="400.0" text="Number of participants" textFill="#0598ff">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="createEventButton" graphicTextGap="0.0" layoutX="111.0" layoutY="410.0" mnemonicParsing="false" onAction="#addToList" prefHeight="37.0" prefWidth="179.0" style="-fx-background-color: #0598ff; -fx-text-fill: white; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Create Event">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <TextField fx:id="eventLocationInput" alignment="CENTER" layoutX="84.0" layoutY="270.0" prefHeight="24.0" prefWidth="232.0" promptText="Location" style="-fx-border-color: #0598ff;" />
+            <Label alignment="CENTER" layoutY="234.0" prefHeight="25.0" prefWidth="400.0" text="Location" textFill="#0598ff">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="316.0" prefHeight="25.0" prefWidth="400.0" text="Date" textFill="#0598ff">
+               <font> 
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="eventDateInput" alignment="CENTER" layoutX="84.0" layoutY="357.0" prefHeight="24.0" prefWidth="232.0" promptText="dd.mm.yyyy" style="-fx-border-color: #0598ff;" />
+            <Label alignment="CENTER" layoutY="14.0" prefWidth="400.0" text="Create an event" textAlignment="CENTER" textFill="#0573bc">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="eventListTable" layoutX="10.0" layoutY="50.0" prefHeight="507.0" prefWidth="463.0">
+         <children>
+            <Button fx:id="deleteEventButton" graphicTextGap="0.0" layoutX="160.0" layoutY="458.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="32.0" prefWidth="127.0" style="-fx-background-color: #0598ff; -fx-text-fill: white; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Delete Event">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <ListView fx:id="eventList" layoutX="25.0" layoutY="54.0" onMouseClicked="#handleEventClicked" prefHeight="391.0" prefWidth="398.0" style="-fx-border-color: #0598ff;" />
+            <Label layoutX="185.0" layoutY="14.0" text="Events" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Pane fx:id="loginScreen" prefHeight="569.0" prefWidth="992.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="insertUsername" layoutX="638.0" layoutY="316.0" prefHeight="40.0" prefWidth="232.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0 0 2 0;" />
+            <Pane prefHeight="569.0" prefWidth="496.0" style="-fx-background-color: #0598ff;">
+               <children>
+                  <Label layoutX="159.0" layoutY="285.0" text="Eventplanner" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <FontIcon iconColor="WHITE" iconLiteral="far-calendar-check" iconSize="75" layoutX="215.0" layoutY="268.0" text="" />
+               </children>
+            </Pane>
+            <Button fx:id="logInButton" layoutX="638.0" layoutY="368.0" mnemonicParsing="false" onAction="#logInButton" style="-fx-background-color: #0598ff; -fx-background-insets: 0,1,2,0; -fx-text-fill: white; -fx-font-family: Arial; -fx-padding: 10 20 10 20; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Log In" />
+            <Label layoutX="688.0" layoutY="173.0" text="User Login" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+            </Label>
+            <FontIcon iconColor="#0598ff" iconLiteral="fas-user" iconSize="20" layoutX="612.0" layoutY="347.0" selectionFill="#0598ff" text="" />
+            <FontIcon iconColor="#0598ff" iconLiteral="fas-users" iconSize="60" layoutX="723.0" layoutY="165.0" />
+            <Button fx:id="signUpButton" layoutX="787.0" layoutY="368.0" mnemonicParsing="false" onAction="#signUpButton" style="-fx-background-color: #0598ff; -fx-background-insets: 0,1,2,0; -fx-text-fill: white; -fx-font-family: Arial; -fx-padding: 10 20 10 20; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Sign Up" />
+            <Text fx:id="feedbackField" fill="RED" layoutX="638.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="340.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
